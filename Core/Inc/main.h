@@ -28,17 +28,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
-#include "stm32f4xx_hal.h"
-#include "stm32f4xx.h"
-#include "stm32f4xx_ll_system.h"
-#include "stm32f4xx_ll_gpio.h"
-#include "stm32f4xx_ll_exti.h"
-#include "stm32f4xx_ll_bus.h"
-#include "stm32f4xx_ll_cortex.h"
-#include "stm32f4xx_ll_rcc.h"
-#include "stm32f4xx_ll_utils.h"
-#include "stm32f4xx_ll_pwr.h"
-#include "stm32f4xx_ll_dma.h"
+#include "stm32h7xx_hal.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
@@ -68,43 +58,51 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
-#define BLUE_BUTTON_Pin LL_GPIO_PIN_13
-#define BLUE_BUTTON_GPIO_Port GPIOC
-#define BLUE_BUTTON_EXTI_IRQn EXTI15_10_IRQn
-#define ADC_CH_4_TEMP_Pin LL_GPIO_PIN_1
-#define ADC_CH_4_TEMP_GPIO_Port GPIOC
-#define ADC_CH_2_VBUS_Pin LL_GPIO_PIN_2
-#define ADC_CH_2_VBUS_GPIO_Port GPIOC
-#define ADC_Bemf_CH1_Pin LL_GPIO_PIN_3
-#define ADC_Bemf_CH1_GPIO_Port GPIOC
-#define ADC_CH_1_CURRENT_Pin LL_GPIO_PIN_0
+#define USER_Btn_Pin GPIO_PIN_13
+#define USER_Btn_GPIO_Port GPIOC
+#define USER_Btn_EXTI_IRQn EXTI15_10_IRQn
+#define MCO_Pin GPIO_PIN_0
+#define MCO_GPIO_Port GPIOH
+#define ADC_Bemf_CH1ADC_Bemf_CH1_Pin GPIO_PIN_3
+#define ADC_Bemf_CH1ADC_Bemf_CH1_GPIO_Port GPIOC
+#define ADC_CH_1_CURRENT_Pin GPIO_PIN_0
 #define ADC_CH_1_CURRENT_GPIO_Port GPIOA
-#define ADC_CH_2_SPEED_Pin LL_GPIO_PIN_1
+#define ADC_CH_2_SPEED_Pin GPIO_PIN_1
 #define ADC_CH_2_SPEED_GPIO_Port GPIOA
-#define USART_TX_Pin LL_GPIO_PIN_2
-#define USART_TX_GPIO_Port GPIOA
-#define USART_RX_Pin LL_GPIO_PIN_3
-#define USART_RX_GPIO_Port GPIOA
-#define LD2_Pin LL_GPIO_PIN_5
-#define LD2_GPIO_Port GPIOA
-#define ADC_Bemf_CH3_Pin LL_GPIO_PIN_7
+#define ADC_Bemf_CH3_Pin GPIO_PIN_7
 #define ADC_Bemf_CH3_GPIO_Port GPIOA
-#define ADC_Bemf_CH2_Pin LL_GPIO_PIN_0
+#define ADC_Bemf_CH2_Pin GPIO_PIN_0
 #define ADC_Bemf_CH2_GPIO_Port GPIOB
-#define RESET_PIN_Pin LL_GPIO_PIN_7
-#define RESET_PIN_GPIO_Port GPIOC
-#define TMS_Pin LL_GPIO_PIN_13
-#define TMS_GPIO_Port GPIOA
-#define TCK_Pin LL_GPIO_PIN_14
-#define TCK_GPIO_Port GPIOA
-#define GPIO_CH_COMM_Pin LL_GPIO_PIN_10
+#define HALL_3_Pin GPIO_PIN_10
+#define HALL_3_GPIO_Port GPIOB
+#define STLK_RX_Pin GPIO_PIN_8
+#define STLK_RX_GPIO_Port GPIOD
+#define STLK_TX_Pin GPIO_PIN_9
+#define STLK_TX_GPIO_Port GPIOD
+#define USB_PowerSwitchOn_Pin GPIO_PIN_6
+#define USB_PowerSwitchOn_GPIO_Port GPIOG
+#define USB_OverCurrent_Pin GPIO_PIN_7
+#define USB_OverCurrent_GPIO_Port GPIOG
+#define RESET_PN_Pin GPIO_PIN_7
+#define RESET_PN_GPIO_Port GPIOC
+#define HALL_1_Pin GPIO_PIN_15
+#define HALL_1_GPIO_Port GPIOA
+#define GPIO_CH_COMM_Pin GPIO_PIN_10
 #define GPIO_CH_COMM_GPIO_Port GPIOC
-#define GPIO_CH_ZCR_Pin LL_GPIO_PIN_12
+#define GPIO_CH_ZCR_Pin GPIO_PIN_12
 #define GPIO_CH_ZCR_GPIO_Port GPIOC
-#define EN_PIN_Pin LL_GPIO_PIN_4
+#define RMII_TX_EN_Pin GPIO_PIN_11
+#define RMII_TX_EN_GPIO_Port GPIOG
+#define RMII_TXD0_Pin GPIO_PIN_13
+#define RMII_TXD0_GPIO_Port GPIOG
+#define HALL_2_Pin GPIO_PIN_3
+#define HALL_2_GPIO_Port GPIOB
+#define EN_PIN_Pin GPIO_PIN_4
 #define EN_PIN_GPIO_Port GPIOB
-#define FAULT_PIN_Pin LL_GPIO_PIN_5
+#define FAULT_PIN_Pin GPIO_PIN_5
 #define FAULT_PIN_GPIO_Port GPIOB
+#define LD2_Pin GPIO_PIN_7
+#define LD2_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 
 /* USER CODE END Private defines */

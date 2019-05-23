@@ -8,6 +8,9 @@
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+
+#include "stm32h7xx_ll_gpio.h"
+#include "tim.h"
 #include <bldc.h>
 
 /* External variables --------------------------------------------------------*/
