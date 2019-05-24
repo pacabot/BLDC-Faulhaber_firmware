@@ -20,6 +20,8 @@
 /* Exported macro ------------------------------------------------------------*/
 
 /* Exported functions prototypes ---------------------------------------------*/
+void aesm4096_Init(void);
+uint32_t aesm4096_getPosition(void);
 
 /* Private defines -----------------------------------------------------------*/
 
