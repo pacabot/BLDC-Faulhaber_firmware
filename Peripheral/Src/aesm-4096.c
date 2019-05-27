@@ -105,9 +105,9 @@ void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi)
 
     newcomm_pos = (left_encoder_value / 683) + 1;
 
-    if (newcomm_pos == comm_pos) return;
-
-    comm_pos = newcomm_pos;
+//    if (newcomm_pos == comm_pos) return;
+//
+//    comm_pos = newcomm_pos;
 
 //    printf("%d\n", (int)newcomm_pos);
     BLDCMotorPrepareCommutation(newcomm_pos);

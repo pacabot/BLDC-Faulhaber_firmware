@@ -111,8 +111,8 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-#define MIN 200
-#define MAX 4096
+#define MIN 0
+#define MAX 1000
     printf("HELLO BLDC WORLD \n\r");
 
     aesm4096_Init();
@@ -123,29 +123,30 @@ int main(void)
 //    	HAL_Delay(100);
 //    }
 //    BLDC_setDir(CCW);
-//    BLDC_setDutyCycle(128);
+//    BLDC_setDutyCycle(30);
 //    while(1);
     while (1)
     {
 
         BLDC_setDir(CW);
-        for (int i = MIN; i < MAX; i+=40)
+        BLDC_setSync(SYNC);
+        for (int i = MIN; i < MAX; i+=20)
         {
             BLDC_setDutyCycle(i);
             HAL_Delay(1);
         }
-        for (int i = MIN; i < MAX; i+=40)
+        for (int i = MIN; i < MAX; i+=20)
         {
             BLDC_setDutyCycle(MAX - i + MIN);
             HAL_Delay(1);
         }
         BLDC_setDir(CCW);
-        for (int i = MIN; i < MAX; i+=40)
+        for (int i = MIN; i < MAX; i+=20)
         {
             BLDC_setDutyCycle(i);
             HAL_Delay(1);
         }
-        for (int i = MIN; i < MAX; i+=40)
+        for (int i = MIN; i < MAX; i+=20)
         {
             BLDC_setDutyCycle(MAX - i + MIN);
             HAL_Delay(1);
