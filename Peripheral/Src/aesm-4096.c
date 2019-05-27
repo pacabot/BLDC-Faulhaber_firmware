@@ -10,6 +10,8 @@
 
 #include "spi.h"
 #include "tim.h"
+
+#include "bldc.h"
 #include "aesm-4096.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -91,10 +93,22 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
 
 void HAL_SPI_RxCpltCallback(SPI_HandleTypeDef *hspi)
 {
+	uint16_t newcomm_pos = 0;
+    static uint16_t comm_pos = 0;
+
 	if (hspi != &hspi1)
 		return;
 
 	left_SSI_data >>= 8;
 	left_SSI_data &= 0b00000111111111111;
     left_encoder_value = left_SSI_data;
+
+    newcomm_pos = (left_encoder_value / 683) + 1;
+
+    if (newcomm_pos == comm_pos) return;
+
+    comm_pos = newcomm_pos;
+
+//    printf("%d\n", (int)newcomm_pos);
+    BLDCMotorPrepareCommutation(newcomm_pos);
 }

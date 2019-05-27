@@ -116,32 +116,36 @@ int main(void)
     printf("HELLO BLDC WORLD \n\r");
 
     aesm4096_Init();
-    while(1)
-    {
-    	printf("encoder = %d\n", (int)aesm4096_getPosition());
-    	HAL_Delay(100);
-    }
+    BLDC_init();
+//    while(1)
+//    {
+//    	printf("encoder = %d\n", (int)aesm4096_getPosition());
+//    	HAL_Delay(100);
+//    }
+//    BLDC_setDir(CCW);
+//    BLDC_setDutyCycle(128);
+//    while(1);
     while (1)
     {
 
         BLDC_setDir(CW);
-        for (int i = MIN; i < MAX; i++)
+        for (int i = MIN; i < MAX; i+=40)
         {
             BLDC_setDutyCycle(i);
             HAL_Delay(1);
         }
-        for (int i = MIN; i < MAX; i++)
+        for (int i = MIN; i < MAX; i+=40)
         {
             BLDC_setDutyCycle(MAX - i + MIN);
             HAL_Delay(1);
         }
         BLDC_setDir(CCW);
-        for (int i = MIN; i < MAX; i++)
+        for (int i = MIN; i < MAX; i+=40)
         {
             BLDC_setDutyCycle(i);
             HAL_Delay(1);
         }
-        for (int i = MIN; i < MAX; i++)
+        for (int i = MIN; i < MAX; i+=40)
         {
             BLDC_setDutyCycle(MAX - i + MIN);
             HAL_Delay(1);
@@ -183,9 +187,9 @@ void SystemClock_Config(void)
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = 4;
-  RCC_OscInitStruct.PLL.PLLN = 52;
+  RCC_OscInitStruct.PLL.PLLN = 50;
   RCC_OscInitStruct.PLL.PLLP = 2;
-  RCC_OscInitStruct.PLL.PLLQ = 4;
+  RCC_OscInitStruct.PLL.PLLQ = 2;
   RCC_OscInitStruct.PLL.PLLR = 2;
   RCC_OscInitStruct.PLL.PLLRGE = RCC_PLL1VCIRANGE_3;
   RCC_OscInitStruct.PLL.PLLVCOSEL = RCC_PLL1VCOWIDE;
@@ -213,13 +217,13 @@ void SystemClock_Config(void)
   }
   PeriphClkInitStruct.PeriphClockSelection = RCC_PERIPHCLK_USART3|RCC_PERIPHCLK_SPI1
                               |RCC_PERIPHCLK_ADC;
-  PeriphClkInitStruct.PLL2.PLL2M = 32;
-  PeriphClkInitStruct.PLL2.PLL2N = 129;
-  PeriphClkInitStruct.PLL2.PLL2P = 2;
+  PeriphClkInitStruct.PLL2.PLL2M = 4;
+  PeriphClkInitStruct.PLL2.PLL2N = 10;
+  PeriphClkInitStruct.PLL2.PLL2P = 1;
   PeriphClkInitStruct.PLL2.PLL2Q = 2;
   PeriphClkInitStruct.PLL2.PLL2R = 2;
-  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_1;
-  PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOWIDE;
+  PeriphClkInitStruct.PLL2.PLL2RGE = RCC_PLL2VCIRANGE_3;
+  PeriphClkInitStruct.PLL2.PLL2VCOSEL = RCC_PLL2VCOMEDIUM;
   PeriphClkInitStruct.PLL2.PLL2FRACN = 0;
   PeriphClkInitStruct.Spi123ClockSelection = RCC_SPI123CLKSOURCE_PLL;
   PeriphClkInitStruct.Usart234578ClockSelection = RCC_USART234578CLKSOURCE_D2PCLK1;
