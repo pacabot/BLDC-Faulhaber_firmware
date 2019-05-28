@@ -31,7 +31,7 @@
 /* USER CODE BEGIN Includes */
 #include "bldc.h"
 #include "aesm-4096.h"
-#include "stdio.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -99,12 +99,12 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_DMA_Init();
-  MX_USART3_UART_Init();
   MX_ADC1_Init();
+  MX_SPI1_Init();
   MX_TIM1_Init();
   MX_TIM2_Init();
-  MX_SPI1_Init();
   MX_TIM6_Init();
+  MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
@@ -151,11 +151,11 @@ int main(void)
             BLDC_setDutyCycle(MAX - i + MIN);
             HAL_Delay(1);
         }
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-
-        }
+  }
   /* USER CODE END 3 */
 }
 

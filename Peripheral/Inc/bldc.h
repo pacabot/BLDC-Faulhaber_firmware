@@ -1,7 +1,7 @@
 /**
  ******************************************************************************
  * @file    bldc.h
- * @author  PLF
+ * @author  ZHONX
  * @version V1.0.0
  * @date    10/01/2018
  * @brief   bldc header

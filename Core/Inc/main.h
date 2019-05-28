@@ -69,6 +69,10 @@ void Error_Handler(void);
 #define ADC_CH_1_CURRENT_GPIO_Port GPIOA
 #define ADC_CH_2_SPEED_Pin GPIO_PIN_1
 #define ADC_CH_2_SPEED_GPIO_Port GPIOA
+#define BLDC_CLK_Pin GPIO_PIN_5
+#define BLDC_CLK_GPIO_Port GPIOA
+#define BLDC_DAT_Pin GPIO_PIN_6
+#define BLDC_DAT_GPIO_Port GPIOA
 #define ADC_Bemf_CH3_Pin GPIO_PIN_7
 #define ADC_Bemf_CH3_GPIO_Port GPIOA
 #define ADC_Bemf_CH2_Pin GPIO_PIN_0

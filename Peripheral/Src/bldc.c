@@ -1,8 +1,9 @@
 /**
  ******************************************************************************
- * @file    TIM/TIM_6Steps/Src/main.c
- * @author  MCD Application Team
- * @brief   This example shows how to use TIM1 peripheral to generate 6 Steps.
+ * @file    bldc.c
+ * @author  ZHONX
+ * @version V1.0.0
+ * @date    10/01/2018
  ******************************************************************************
  */
 
