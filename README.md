@@ -1,6 +1,7 @@
 # BLDC FAULHABER DRIVER ON STM32
-This project demonstrate how to use STM32 for drive sensored bldc driver.
-It's compatible with STM32F446 nucleo and nucleo-ihm11m1 extension board 
-We have developped this driver with sample of FAULHABER 0620 hall sensored brushless motor ans 0824 AESM absolute encoder
-Tanks to Faulhaber!!!
-You can see more details on [pacabot.com](http://pacabot.com)
+This project demonstrates how to use STM32 to drive sensored bldc motor.
+It's compatible with STM32H743 nucleo and nucleo-ihm11m1 extension board.
+We have developped this driver using a sample of FAULHABER 0620 halls sensored brushless motor and 0824 with AESM absolute encoder.
+Many thanks to Faulhaber!!!
+https://www.faulhaber.com/fr/produits/moteurs-cc-sans-balais/
+More details available at [pacabot.com](http://pacabot.com)
